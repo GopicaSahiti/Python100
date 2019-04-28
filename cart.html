@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<title>Cart</title>
+<link rel="stylesheet" href="menu.css">
+<link rel = "import" href="menu.html">
+<link rel="sheeet" href="menu.html">
+<script src="taffy.js"></script>
+
+<body>
+    <h1>Shopping Cart</h1>
+    <script>
+        cart_items = localStorage.getItem("cartDb");
+        alert("cart page");
+        alert(cart_items().count());
+        cart_items().each(function (r) {
+            alert(r.item_name);
+            document.write("<img class ='img' src='"+image+"'<br>"
+                        +r.item_name+"<p id='itemPrice'>$");
+        
+        });
+    </script>
+    
+    
+     
+</body>
+</html>
