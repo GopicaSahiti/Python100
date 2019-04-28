@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<title>Menu</title>
+<link rel="stylesheet" href="menu.css">
+<script src="taffy.js"></script>
+
+<body>
+<button id = "shoppingCart" type="button" class="shoppingCart" onclick="cartButton()"> Cart</button>
+<button id = "logout" type="button" class="logout">Logout</button>
+<br>
+<h1>Menu</h1>
+<script>
+var $ = function(id) {
+     return document.getElementById(id); 
+};
+    var menu = TAFFY([
+        {"id":1,"item_name":"Bacon Sandwich","price": 5.49,"calories":640},
+        {"id":2,"item_name":"Cheeseburger", "price": 1.19,"calories":300},
+        {"id":3,"item_name":"Hamburger", "price": 1.09, "calories": 250},
+        {"id":4,"item_name":"Double Cheeseburger", "price": 1.79,"calories":270},
+        {"id":5,"item_name":"Chicken Tenders", "price": 3.99,"calories":490},
+        {"id":6,"item_name":"Fish Fillet", "price": 4.19,"calories":390},
+        {"id":7,"item_name":"French Fries", "price": 2.39,"calories":340},
+        {"id":8,"item_name":"Bacon Fries", "price": 3.39,"calories": 560},
+        {"id":9,"item_name":"Chicken Nuggets", "price": 1.19,"calories": 190},
+        {"id":10,"item_name":"Coke", "price": 5.00,"calories": 400},
+        {"id":11,"item_name":"Fruit Punch", "price": 1.00,"calories": 230}	
+    ]);
+
+    var cart_items = TAFFY();
+    
+
+    document.write(
+        "<div class='row'>");
+    menu().each(function (r) {
+        var image = "Images/"+r.item_name+".jpg";
+        document.write("<div class = 'column'>"
+                        +"<br><img class ='img' src='"+image+"'<br>"
+                        +"<p id='itemName'"+r.item_name+"</p><p id='itemPrice'>$"
+                        + r.price+"</p>"+r.calories+" cal<br>"
+                        +"<button id = 'addToCart' type='button' class='addToCart' onclick='addItemsToCart()'>Add to cart</button><br>"
+                        +"</div>");
+    });
+    document.write("</div>");
+
+    function addItemsToCart(){
+
+        alert("Item added to the cart");
+
+        var itemName = $("itemName").value;
+        var itemPrice = $("itemPrice").value;
+
+        cart_items.insert({item_name:itemName,item_price:itemPrice});
+        alert(cart_items().count());
+    }
+
+    function cartButton(){
+        window.location = "cart.html";
+    }
+    
+    
+    
+
+</script>
+</body>
+</html>

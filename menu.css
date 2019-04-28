@@ -1,0 +1,72 @@
+body{
+    
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+table{
+    display: inline-block;
+    background-color: bisque;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color: coral;  
+    width: 60%; 
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td,th{
+    width: 200px;
+}
+
+h1{
+    font-family: cursive;
+    font-size: 45px;
+    color: coral;
+    background-color: bisque;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.addToCart{
+    color: white;
+    background-color: coral;
+    width: 30%;
+    padding: 10px 15px;
+
+}
+
+.img{
+    position: relative;
+    /*float: left;*/
+    width:  150px;
+    height: 150px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+.shoppingCart,.logout{
+    color: white;
+    background-color: coral;
+    width: 10%;
+    padding: 10px 15px;
+    float: right;
+    margin: 5px;
+}
+
+.column{
+    float: left;
+    width: 28.33%;
+    padding: 5px;
+}
+
+.row{
+    content: "";
+    clear: both;
+    display: table;
+}
