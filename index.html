@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script src = "taffy.js"></script>
+        <link rel="stylesheet" type="text/css" href="sign_up.css">
+        <script>
+  
+                        var $ = function(id) {
+                             return document.getElementById(id); 
+                        };
+                        users = TAFFY();
+                        
+                        function validateEmail(mail) 
+                        {
+                         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+                          {
+                            return (true)
+                          }
+                            return (false)
+                        }
+                        
+                        function addUserNameAndPassword(){
+                            var email = $("email").value;
+                            var password = $("password").value;
+                        
+                            if(testUserNameAndPassword(email)){
+                                if(validateEmail(email)){
+                                    users.insert({email_address:email,password:password});
+                                    alert(users().last().email_address);
+                                }else{
+                                    alert("Please enter valid email address");
+                                }
+                            }else{
+                                alert("Email address already registered. Please login!")
+                            }
+                        }
+                        
+                        function testUserNameAndPassword(mail){
+                            var email = $("email").value;
+                        
+                            var emailAlreadyEntered =  users({email_address:email}).email_address;
+                                                
+                            if(email.localeCompare(emailAlreadyEntered)==0){
+                                return false
+                            }
+                            return true
+                        }
+                        </script>
+</head>
+<body>
+<form name = "signUpForm" onsubmit="addUserNameAndPassword()" action="menu.html">
+      <h1 class="signUpHeading">Sign Up</h1>
+      <hr>
+      <br><input type="text" placeholder="Enter Email" id="email" required>
+      <br>
+      <br><input type="password" placeholder="Enter Password" id="password" required>
+  
+        <br><br><br>
+        <button type="submit" class="signupbtn">Sign Up</button>
+
+        <p>Registered with us?</p>
+        <a href="login.html">Login here</a>
+  </form>
+
+</body>
+</html>
